@@ -1,0 +1,30 @@
+[project]
+name = "graph-analytics-service"
+version = "0.1.0"
+description = "Graph analysis service"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.119.0",
+    "hatchling>=1.27.0",
+    "neo4j>=6.0.2",
+    "pydantic-settings>=2.11.0",
+    "pydantic>=2.12.3",
+    "python-dotenv>=1.1.1",
+]
+
+#[project.optional-dependencies]
+#dev = [
+#    "pytest>=7.4.0",
+#    "httpx>=0.25.0",
+#]
+#
+#[build-system]
+#requires = ["hatchling"]
+#build-backend = "hatchling.build"
+#
+#[tool.uv]
+#dev-dependencies = [
+#    "pytest>=7.4.0",
+#    "httpx>=0.25.0",
+#]
