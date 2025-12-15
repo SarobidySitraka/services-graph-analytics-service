@@ -1,23 +1,23 @@
 version: '3.8'
 
 services:
-  neo4j:
-    image: neo4j:5.15-community
-    container_name: graph-analysis-neo4j
-    environment:
-      NEO4J_AUTH: neo4j/cedia-neo4j
-      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
-#      NEO4J_ACCEPT_LICENSE_AGREEMENT: 'yes'    # When we choose to use neo4j-enterprise edition
-      NEO4J_apoc_export_file_enabled: 'true'
-      NEO4J_apoc_import_file_enabled: 'true'
-      NEO4J_dbms_security_procedures_unrestricted: 'gds.*, apoc.*'
-      NEO4J_dbms_security_procedures_allowlist: 'gds.*, apoc.*'
-    ports:
-      - "7688:7687"
-      - "7475:7474"
-    volumes:
-      - neo4j_data:/var/lib/neo4j/data
-      - neo4j_logs:/var/lib/neo4j/logs
+#   neo4j:
+#     image: neo4j:5.15-community
+#     container_name: graph-analysis-neo4j
+#     environment:
+#       NEO4J_AUTH: neo4j/cedia-neo4j
+#       NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
+# #      NEO4J_ACCEPT_LICENSE_AGREEMENT: 'yes'    # When we choose to use neo4j-enterprise edition
+#       NEO4J_apoc_export_file_enabled: 'true'
+#       NEO4J_apoc_import_file_enabled: 'true'
+#       NEO4J_dbms_security_procedures_unrestricted: 'gds.*, apoc.*'
+#       NEO4J_dbms_security_procedures_allowlist: 'gds.*, apoc.*'
+#     ports:
+#       - "7688:7687"
+#       - "7475:7474"
+#     volumes:
+#       - neo4j_data:/var/lib/neo4j/data
+#       - neo4j_logs:/var/lib/neo4j/logs
 
   api:
     build: .
@@ -28,18 +28,7 @@ services:
       NEO4J_PASSWORD: cedia-neo4j
       DEBUG: 'false'
     ports:
-      - "8001:8001"
-    depends_on:
-      - neo4j
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /app
-          ignore:
-            - .venv/
-        - action: rebuild
-          path: ./pyproject.toml
+      - "8001:8000"
     volumes:
       - .:/app
 
