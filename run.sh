@@ -4,6 +4,6 @@
 docker compose up --build -d
 
 echo "Services démarrés"
-echo "  - API: http://localhost:8001"
-echo "  - API Docs: http://localhost:8001/docs"
-echo "  - Neo4j: http://localhost:7475"
+echo "  - API: http://localhost:8000"
+echo "  - API Docs: http://localhost:8000/docs"
+echo "  - Neo4j: http://localhost:7474"
